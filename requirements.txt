@@ -1,0 +1,6 @@
+streamlit==1.31.0
+chromadb==0.4.22
+anthropic==0.18.1
+sentence-transformers==2.3.1
+python-dotenv==1.0.0
+pandas==2.2.0

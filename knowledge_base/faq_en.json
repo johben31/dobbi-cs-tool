@@ -1,0 +1,23 @@
+[
+  {
+    "id": "faq_en_001",
+    "question": "How does the service work?",
+    "answer": "Place your order via our app or website. Receive your starter kit with a laundry bag within 1-2 working days. Our PostNL driver picks up your laundry. We process your order and send you a detailed overview of the items and cost. Complete your payment via iDeal, credit card, or PayPal. Your freshly cleaned laundry is delivered back to your doorstep.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_002",
+    "question": "What is the minimum order value?",
+    "answer": "Our minimum order value is €34.95. If your order is below this amount, it will automatically be adjusted to €34.95.",
+    "category": "payment",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_003",
+    "question": "What are the pickup and delivery times?",
+    "answer": "We offer flexible 2-hour time windows Monday through Friday from 8:00 to 20:00 and Saturday from 8:00 to 10:00.",
+    "category": "pickup_delivery",
+    "language": "en"
+  }
+]
