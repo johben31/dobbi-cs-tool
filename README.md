@@ -68,9 +68,9 @@ Press `Ctrl + C` in the terminal.
 ```
 dobbi-cs-tool/
 ├── knowledge_base/
-│   ├── faq_en.json      # English FAQ
-│   ├── faq_nl.json      # Dutch FAQ (to be added)
-│   └── prices.csv       # Price list
+│   ├── faq_en.json      # English FAQ (real data to be added)
+│   ├── faq_nl.json      # Dutch FAQ (real data to be added)
+│   └── prices.csv       # Price list (real data to be added)
 ├── src/
 │   ├── indexer.py       # Embeds knowledge into vector DB
 │   ├── retriever.py     # Searches for relevant info
@@ -91,7 +91,3 @@ When you add new FAQ items or update prices:
 1. Edit `knowledge_base/faq_en.json` or `knowledge_base/prices.csv`
 2. Delete the old index: `rm -rf chroma_db`
 3. Re-run: `python src/indexer.py`
-
-## Team
-
-Digital Impact Lab - UvA 2026
