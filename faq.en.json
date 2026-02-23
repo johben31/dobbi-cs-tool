@@ -1,0 +1,198 @@
+[
+  {
+    "id": "faq_en_001",
+    "question": "How does the service work?",
+    "answer": "It's super simple! Here's how it works: Place your order via our app (Android or iPhone) or website. Receive your starter kit with a laundry bag within 1-2 working days (for first-time orders). Our PostNL driver picks up your laundry. We process your order and send you a detailed overview of the items and cost. Complete your payment via iDeal, credit card, or PayPal. Your freshly cleaned laundry is delivered back to your doorstep—ready for you to enjoy!",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_002",
+    "question": "What types of services do you offer?",
+    "answer": "Perfect for suits, blazers, trousers, coats, dresses, and delicate garments. We ensure premium care, keeping your clothes looking their best. Great for everyday laundry like T-shirts, socks, and towels. Your clothes are washed at 30°C, tumble-dried, and neatly folded—ready to go! Designed for shirts that need a crisp finish. Washed, pressed, and returned on hangers—ready to wear. Ideal for duvets, comforters, pillows, and bed linens. Deep-cleaned to remove allergens and refresh fabrics. Specialized care for wedding gowns and formal wear. We preserve each piece's beauty with expert attention. Gentle cleaning for jackets, handbags, and other leather items, maintaining their quality and feel. Deep cleaning for all types of curtains, refreshing fabric and removing dust and allergens. Unsure about the best service? Let our specialists assess your garment and apply the right treatment for each unique item.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_003",
+    "question": "I don't know what service to choose for my garment. What should I do?",
+    "answer": "No worries, we've got you covered! If you're unsure which service is best for your item, select our Expert Order option. Our specialists will carefully assess your garment and choose the most suitable cleaning method. If you'd like to provide extra details about the item (e.g., fabric type, stains, or specific concerns), feel free to include those in the notes when placing your order. We're here to help!",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_004",
+    "question": "I lost my laundry bag - what now?",
+    "answer": "No worries—it happens! Just reach out to our friendly customer service team, and we'll send you a new dobbi bag right away.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_005",
+    "question": "I didn't receive a laundry bag. What should I do?",
+    "answer": "Oh no, we're sorry about that! Please contact our customer service team, and we'll make sure to send you one as soon as possible. We want to get your order started without delay.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_006",
+    "question": "Can I use my own bag?",
+    "answer": "Unfortunately, no. To ensure accuracy and efficiency, we can only pick up orders packed in a dobbi laundry bag. Each bag has a barcode linked to your account, helping us keep everything organized.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_007",
+    "question": "Can I keep the laundry bag?",
+    "answer": "Absolutely! The dobbi bag is yours to keep and reuse for future orders. We designed it to make your laundry process as smooth as possible, so hang onto it—it's an essential part of our pick-up process.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_008",
+    "question": "I can't place an order",
+    "answer": "If you're having trouble placing your order, please don't hesitate to reach out to us. Our customer service team is here to help and can place the order for you if needed.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_009",
+    "question": "I placed an order by mistake - what should I do?",
+    "answer": "Mistakes happen! You can cancel your order up to 24 hours before the scheduled pick-up. If you need help, please contact our customer service team—we're here to assist.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_010",
+    "question": "How quickly can you process my order?",
+    "answer": "The processing time depends on your location and the service selected. When placing your order in the app, you'll see the first available delivery moment based on your pick-up day and service type.",
+    "category": "services",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_011",
+    "question": "Can I change my pickup or delivery time?",
+    "answer": "Yes, you can! Through the app, you can easily cancel or reschedule your pick-up on workdays until 20:00 if it's scheduled for the next morning, or until 11:30 if it's in the afternoon. Need assistance? Just contact our customer service team, and we'll make the adjustments for you.",
+    "category": "pickup_delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_012",
+    "question": "What if I miss my pickup or delivery?",
+    "answer": "Don't worry—we'll get it sorted! If you miss your pickup, you can reschedule through the app or website. If you miss your delivery, just reach out to customer service, and we'll help arrange a new time that works for you.",
+    "category": "pickup_delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_013",
+    "question": "What are the options for pickup and delivery times?",
+    "answer": "We offer flexible 2-hour time windows Monday through Friday from 8:00 to 20:00 and Saturday from 8:00 to 10:00.",
+    "category": "pickup_delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_014",
+    "question": "Who picks up and delivers my laundry?",
+    "answer": "Our trusted logistics partner, PostNL, handles all pick-ups and deliveries. Their trained drivers ensure your items are in safe hands.",
+    "category": "pickup_delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_015",
+    "question": "Do I need to specify what items I want to be cleaned?",
+    "answer": "No, you only need to select the service type, and our cleaning experts will inventory your order and send you a detailed overview.",
+    "category": "cleaning",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_016",
+    "question": "Do I have to sort my clothes?",
+    "answer": "Nope, we'll handle that for you! If you've selected just one service (like Wash & Fold or Drycleaning), you can toss everything into your dobbi laundry bag, and we'll take care of the rest. If you've chosen multiple services—like combining Wash & Fold with Drycleaning or Bedding—we kindly ask you to pack the items for each service separately in a plastic bag. This helps us ensure the right care for each item. If you're unsure, feel free to contact us—we'd love to assist!",
+    "category": "cleaning",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_017",
+    "question": "What if my order doesn't fit in one laundry bag?",
+    "answer": "Our dobbi laundry bag is impressively spacious! It holds about 12-15 kg of laundry, which is roughly equivalent to two full loads in a standard washing machine. That's plenty for daily laundry, larger items like duvets, or even a wedding gown. If you think you'll need extra space, please contact our customer support team, and we'll help find the best solution for you.",
+    "category": "cleaning",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_018",
+    "question": "What is included in the dobbi starter kit?",
+    "answer": "Your starter kit contains everything you need to get started with our service: Dobbi laundry bag, designed for easy use and durable enough for multiple orders. Instructions to guide you through your first pick-up and delivery process.",
+    "category": "starter_kit",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_019",
+    "question": "When will I receive my dobbi starter kit?",
+    "answer": "You'll receive your starter kit within 1–2 working days after placing your first order. The package is designed to fit through your mailbox, so you don't have to be home to receive it.",
+    "category": "starter_kit",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_020",
+    "question": "Do I need to return the dobbi laundry bag after my first order?",
+    "answer": "Not at all! The dobbi laundry bag is yours to keep and reuse for future orders. It's an essential part of our pick-up process, so hang onto it for a seamless experience.",
+    "category": "starter_kit",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_021",
+    "question": "What if I lose my dobbi laundry bag?",
+    "answer": "No worries - it happens! Simply contact our customer service team, and we'll send you a new laundry bag right away so you can continue enjoying our service.",
+    "category": "starter_kit",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_022",
+    "question": "How much fits in the dobbi laundry bag?",
+    "answer": "The dobbi laundry bag is impressively spacious, holding approximately 12–15 kg of laundry. That's roughly equivalent to: Two full loads in a standard washing machine, A wedding gown or multiple suits, Two duvets or several winter jackets, A mix of daily laundry like T-shirts, jeans, and socks. If you're unsure whether your items will fit, feel free to contact our customer service team for guidance. We're here to help!",
+    "category": "starter_kit",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_023",
+    "question": "How can I pay?",
+    "answer": "Paying for your order is easy! Once we've processed your items, you'll receive an email with a payment link. You can choose to pay via iDeal, credit card, or PayPal—whatever works best for you.",
+    "category": "payment",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_024",
+    "question": "Is there a minimum order value?",
+    "answer": "Yes, our minimum order value is €34.95. If your order is below this amount, it will automatically be adjusted to €34.95.",
+    "category": "payment",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_025",
+    "question": "What happens if my order is under €34.95?",
+    "answer": "No need to worry! If your total is less than €34.95, we'll adjust it to meet the minimum order value, so everything is taken care of.",
+    "category": "payment",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_026",
+    "question": "Can I pay by invoice?",
+    "answer": "For companies, we may offer payment by invoice. Please reach out to our customer service team to discuss the possibilities. For individual customers, this option isn't available at the moment.",
+    "category": "payment",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_027",
+    "question": "Can I pay via direct debit (automatische incasso)?",
+    "answer": "At this time, we don't support payment via direct debit. We'll let you know if this option becomes available in the future!",
+    "category": "payment",
+    "language": "en"
+  },
+  {
+    "id": "faq_en_028",
+    "question": "When do I need to pay?",
+    "answer": "You'll only need to pay after your items have been processed. Once everything is ready, we'll send you an email with an overview and a secure payment link.",
+    "category": "payment",
+    "language": "en"
+  }
+]
