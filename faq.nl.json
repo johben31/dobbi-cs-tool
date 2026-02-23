@@ -1,0 +1,198 @@
+[
+  {
+    "id": "faq_nl_001",
+    "question": "Hoe werkt de service?",
+    "answer": "Het is super eenvoudig! Zo werkt het: Plaats je bestelling via onze app (Android of iPhone) of website. Ontvang je starterkit met een waszak binnen 1-2 werkdagen (bij je eerste bestelling). Onze PostNL-chauffeur haalt je was op. Wij verwerken je bestelling en sturen je een gedetailleerd overzicht van de items en kosten. Betaal eenvoudig via iDeal, creditcard of PayPal. Je fris gereinigde was wordt bij je thuis afgeleverd—klaar om te gebruiken!",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_002",
+    "question": "Welke diensten bieden jullie aan?",
+    "answer": "Perfect voor pakken, blazers, broeken, jassen, jurken en delicate kledingstukken. Wij zorgen voor hoogwaardige verzorging, zodat je kleding er altijd op zijn best uitziet. Ideaal voor dagelijkse was zoals T-shirts, sokken en handdoeken. Je kleding wordt gewassen op 30°C, in de droger gedroogd en netjes opgevouwen—klaar voor gebruik! Speciaal voor overhemden die een strakke afwerking nodig hebben. Gewassen, gestreken en op hangers geretourneerd—klaar om te dragen. Perfect voor dekbedden, dekens, kussens en beddengoed. Diep gereinigd om allergenen te verwijderen en de stoffen te verfrissen. Gespecialiseerde zorg voor trouwjurken en formele kleding. We behouden de schoonheid van elk kledingstuk met deskundige aandacht. Voorzichtige reiniging van jassen, handtassen en andere leren items, waarbij de kwaliteit en het gevoel behouden blijven. Dieptereiniging voor alle soorten gordijnen, waardoor stof en allergenen worden verwijderd en de stof wordt opgefrist. Weet je niet zeker welke service je nodig hebt? Laat onze specialisten je kledingstuk beoordelen en de juiste behandeling toepassen.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_003",
+    "question": "Ik weet niet welke service ik moet kiezen voor mijn kledingstuk. Wat moet ik doen?",
+    "answer": "Geen zorgen, we helpen je graag! Als je niet zeker weet welke service het beste is voor jouw item, kies dan voor onze Expert Order-optie. Onze specialisten beoordelen zorgvuldig je kledingstuk en kiezen de meest geschikte reinigingsmethode. Wil je extra details geven over het item (bijv. stofsoort, vlekken of specifieke zorgen)? Voeg deze dan toe in de opmerkingen bij je bestelling. We helpen je graag!",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_004",
+    "question": "Ik ben mijn waszak kwijt - wat nu?",
+    "answer": "Geen probleem—dat kan gebeuren! Neem gewoon contact op met onze vriendelijke klantenservice en we sturen je direct een nieuwe dobbi-waszak.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_005",
+    "question": "Ik heb geen waszak ontvangen. Wat moet ik doen?",
+    "answer": "Oeps, dat spijt ons! Neem contact op met onze klantenservice en we zorgen ervoor dat je er zo snel mogelijk een ontvangt. We willen dat je bestelling zonder vertraging kan starten.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_006",
+    "question": "Kan ik mijn eigen tas gebruiken?",
+    "answer": "Helaas niet. Om nauwkeurigheid en efficiëntie te garanderen, kunnen we alleen bestellingen ophalen die zijn verpakt in een dobbi-waszak. Elke zak heeft een barcode die aan je account is gekoppeld, zodat we alles georganiseerd kunnen houden.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_007",
+    "question": "Mag ik de waszak houden?",
+    "answer": "Absoluut! De dobbi-waszak is van jou om te houden en opnieuw te gebruiken voor toekomstige bestellingen. We hebben hem ontworpen om je wasproces zo soepel mogelijk te laten verlopen, dus bewaar hem goed—het is een essentieel onderdeel van ons ophaalproces.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_008",
+    "question": "Ik kan geen bestelling plaatsen",
+    "answer": "Heb je problemen met het plaatsen van je bestelling? Neem dan gerust contact met ons op. Onze klantenservice helpt je graag en kan de bestelling indien nodig voor je plaatsen.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_009",
+    "question": "Ik heb per ongeluk een bestelling geplaatst - wat moet ik doen?",
+    "answer": "Fouten gebeuren! Je kunt je bestelling tot 24 uur voor de geplande ophaalafspraak annuleren. Heb je hulp nodig? Neem dan contact op met onze klantenservice—wij staan voor je klaar.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_010",
+    "question": "Hoe snel kunnen jullie mijn bestelling verwerken?",
+    "answer": "De verwerkingstijd hangt af van je locatie en de gekozen service. Wanneer je een bestelling plaatst in de app, zie je het eerst beschikbare bezorgmoment op basis van je ophaaldag en servicetype.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_011",
+    "question": "Kan ik mijn ophaal- of bezorgtijd wijzigen?",
+    "answer": "Ja, dat kan! Via de app kun je je ophaalmoment op werkdagen wijzigen tot 20:00 als het voor de volgende ochtend is, of tot 11:30 als het in de middag is. Neem contact met ons op als je hulp nodig hebt!",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_012",
+    "question": "Wat als ik mijn ophaal- of bezorgmoment mis?",
+    "answer": "Geen zorgen! Als je de ophaalafspraak mist, kun je deze eenvoudig opnieuw inplannen via de app of website. Neem contact op met onze klantenservice als je de bezorging hebt gemist, dan regelen we een nieuw moment.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_013",
+    "question": "Welke opties zijn er voor ophalen en bezorgen?",
+    "answer": "We bieden flexibele 2-uurs tijdvensters van maandag t/m vrijdag van 08:00 tot 20:00 en op zaterdag van 08:00 tot 10:00.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_014",
+    "question": "Wie haalt mijn was op en bezorgt deze?",
+    "answer": "Onze betrouwbare logistieke partner, PostNL, verzorgt alle ophalingen en bezorgingen.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_015",
+    "question": "Moet ik aangeven welke kledingstukken gereinigd moeten worden?",
+    "answer": "Nee, je kiest alleen het type service. Onze experts maken een inventarisatie en sturen je een overzicht.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_016",
+    "question": "Moet ik mijn kleding sorteren?",
+    "answer": "Nee, dat doen wij voor je! Als je één service kiest (bijv. Wassen & Vouwen), kun je alles in je dobbi-waszak doen. Kies je meerdere services? Dan vragen we je om de items per service in aparte plastic zakken te verpakken.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_017",
+    "question": "Wat als mijn bestelling niet in één waszak past?",
+    "answer": "De dobbi-waszak heeft een capaciteit van 12-15 kg, vergelijkbaar met twee volle wasmachineladingen. Heb je meer ruimte nodig? Neem contact met ons op en we helpen je verder!",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_018",
+    "question": "Wat zit er in de dobbi-starterkit?",
+    "answer": "De starterkit bevat: een duurzame dobbi-waszak en instructies om je eerste bestelling soepel te laten verlopen.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_019",
+    "question": "Wanneer ontvang ik mijn dobbi-starterkit?",
+    "answer": "Binnen 1-2 werkdagen na je eerste bestelling. De kit past door de brievenbus, dus je hoeft niet thuis te zijn.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_020",
+    "question": "Moet ik de dobbi-waszak retourneren?",
+    "answer": "Nee! De dobbi-waszak is herbruikbaar en blijft van jou.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_021",
+    "question": "Wat als ik mijn dobbi-waszak verlies?",
+    "answer": "Geen probleem! Neem contact met ons op en we sturen een nieuwe op.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_022",
+    "question": "Hoeveel past er in de dobbi-waszak?",
+    "answer": "Ongeveer 12-15 kg wasgoed. Dat komt overeen met: twee volle wasladingen, een trouwjurk, of meerdere jassen.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_023",
+    "question": "Hoe kan ik betalen?",
+    "answer": "Betalen voor je bestelling is eenvoudig! Zodra we je items hebben verwerkt, ontvang je een e-mail met een betaallink. Je kunt betalen via iDeal, creditcard of PayPal—wat voor jou het beste werkt.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_024",
+    "question": "Is er een minimum bestelbedrag?",
+    "answer": "Ja, ons minimale bestelbedrag is €34,95. Als je bestelling onder dit bedrag ligt, wordt het automatisch aangepast naar €34,95.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_025",
+    "question": "Wat gebeurt er als mijn bestelling onder €34,95 is?",
+    "answer": "Geen zorgen! Als je totaalbedrag minder is dan €34,95, passen we het aan zodat het voldoet aan het minimale bestelbedrag. Zo wordt alles geregeld.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_026",
+    "question": "Kan ik betalen op factuur?",
+    "answer": "Voor bedrijven bieden we mogelijk betaling op factuur aan. Neem contact op met onze klantenservice om de mogelijkheden te bespreken. Voor particulieren is deze optie momenteel niet beschikbaar.",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_027",
+    "question": "Kan ik betalen via automatische incasso?",
+    "answer": "Op dit moment ondersteunen we geen betaling via automatische incasso. We laten het je weten zodra deze optie beschikbaar komt!",
+    "category": "general",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_028",
+    "question": "Wanneer moet ik betalen?",
+    "answer": "Je hoeft pas te betalen nadat je items zijn verwerkt. Zodra alles klaar is, sturen we je een e-mail met een overzicht en een beveiligde betaallink.",
+    "category": "general",
+    "language": "nl"
+  }
+]
