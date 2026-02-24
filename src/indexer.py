@@ -46,6 +46,7 @@ class KnowledgeBaseIndexer:
         print(f"Indexed {len(documents)} FAQ items from {faq_json_path}")
     
     def index_prices(self, csv_path: str):
+        """Index price list from CSV"""
         df = pd.read_csv(csv_path)
         
         documents = []
@@ -53,15 +54,13 @@ class KnowledgeBaseIndexer:
         metadatas = []
         
         for idx, row in df.iterrows():
-            doc_text = f"{row['item_name']} ({row['item_name_nl']}): €{row['price_eur']}"
-            if pd.notna(row.get('notes')) and row.get('notes'):
-                doc_text += f" - {row['notes']}"
+            doc_text = f"{row['Item']}: €{row['Price (EUR)']}"
             
             documents.append(doc_text)
             ids.append(f"price_{idx}")
             metadatas.append({
                 "source": "price_list",
-                "category": row.get('category', 'general')
+                "category": row['Category']
             })
         
         print(f"Embedding {len(documents)} price items...")
