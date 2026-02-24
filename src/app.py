@@ -50,7 +50,7 @@ with col1:
                 classification = classifier.classify(customer_message)
                 st.session_state['classification'] = classification
                 
-                retrieved_docs = retriever.retrieve(customer_message, k=5)
+                retrieved_docs = retriever.retrieve(customer_message, k=10)
                 st.session_state['retrieved_docs'] = retrieved_docs
                 
                 result = generator.generate(
