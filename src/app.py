@@ -17,6 +17,19 @@ st.set_page_config(
 
 @st.cache_resource
 def load_pipeline():
+    import os
+    from indexer import KnowledgeBaseIndexer
+    
+    # Auto-index if database doesn't exist
+    if not os.path.exists("./chroma_db"):
+        indexer = KnowledgeBaseIndexer()
+        if os.path.exists("knowledge_base/faq_en.json"):
+            indexer.index_faq("knowledge_base/faq_en.json")
+        if os.path.exists("knowledge_base/faq_nl.json"):
+            indexer.index_faq("knowledge_base/faq_nl.json")
+        if os.path.exists("knowledge_base/prices.csv"):
+            indexer.index_prices("knowledge_base/prices.csv")
+    
     classifier = QuestionClassifier()
     retriever = DobbiRetriever(db_path="./chroma_db")
     generator = ResponseGenerator()
