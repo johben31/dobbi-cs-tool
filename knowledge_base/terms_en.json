@@ -1,0 +1,177 @@
+[
+  {
+    "id": "terms_001",
+    "question": "What are dobbi's customer service hours and contact details?",
+    "answer": "Customer service is available Monday to Friday from 9:00 to 17:30. Email: info@dobbi.com, Phone: +31 85-01 875 40. Address: Clean Clothes B.V., Naarderweg 16, 1217 GL Hilversum.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_002",
+    "question": "Do prices include VAT?",
+    "answer": "Yes, all prices for services listed on the app, website, and other dobbi materials include 21% VAT unless stated otherwise.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_003",
+    "question": "What is the minimum order value?",
+    "answer": "The minimum order value for dobbi's home service is €34.95. If you spend less than €34.95, the order amount will be rounded up to €34.95. For orders under €50.00, a service fee of €4.95 will be charged.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_004",
+    "question": "What happens if I cancel my order after pickup?",
+    "answer": "If the order has been dropped off at a service point or picked up and you decide to cancel the order for any reason, transport fees may be charged.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_005",
+    "question": "How does the deposit for laundry bags work?",
+    "answer": "Orders are transported using green dobbi laundry bags and garment covers. You pay a deposit of €5.95 per bag or cover. If you no longer wish to use the service and want to return the bags or covers, you can send them to Clean Clothes B.V., Naarderweg 16, 1217 GL Hilversum.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_006",
+    "question": "How can I change or cancel my order?",
+    "answer": "You may only change or terminate the agreement if notified to customer service at least 8 hours before the items are picked up during office hours. For orders scheduled between 15:00 and 20:00, the notification must be at least 12 hours in advance on a working day. For orders scheduled between 08:00 and 12:00, the notification must be at least 18 hours in advance on a working day.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_007",
+    "question": "What should I do before sending my laundry?",
+    "answer": "The customer must place the items, free of loose objects (such as pens, pins, coat hangers, etc.), in the dobbi laundry bag.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_008",
+    "question": "Does dobbi guarantee stain removal?",
+    "answer": "No. Dobbi has a best-efforts obligation to perform the services to the best of its ability. However, as stated in Civil Code 7:400 BW, 100% stain removal cannot be guaranteed.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_009",
+    "question": "How long do I have to report a complaint or defect?",
+    "answer": "The customer must inspect the returned items after the services have been performed and report any defects within 48 hours of receipt by email to customer service.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_010",
+    "question": "What happens if I'm not home for delivery?",
+    "answer": "If the customer or an appointed third party is not present at the planned delivery time, customer service will contact the customer. A new delivery appointment will be made, and if the customer is absent again, a fee of €10 will be charged.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_011",
+    "question": "What happens if I don't collect my items?",
+    "answer": "If the customer does not collect or arrange delivery of the items within 90 days of the planned delivery date, dobbi reserves the right to destroy or donate the items to a charity.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_012",
+    "question": "What is dobbi's liability for damage or loss?",
+    "answer": "Dobbi's total liability is limited to no more than ten times the standard cleaning cost per item, with a maximum of €250 per customer. Dobbi is never liable for indirect damage, including consequential damage, lost profits, or missed savings.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_013",
+    "question": "What is dobbi NOT liable for?",
+    "answer": "Dobbi is not liable for: incomplete or incorrect communications from the customer, loss of objects left in items, color fading or shrinkage, damage to items without a wash label, or loss/damage of buttons, zippers, decorations, covers, or other items.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_014",
+    "question": "What about missing buttons or damaged zippers?",
+    "answer": "Dobbi is not liable for loss or damage of buttons, zippers, decorations, covers, or other items. This is stated in the general terms and conditions.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_015",
+    "question": "What if my item was damaged during cleaning?",
+    "answer": "If dobbi deems the complaint valid, the services will be redone free of charge (re-cleaning), or the items will be repaired, replaced, or reimbursed. For re-cleaning, dobbi requests the items to be returned within 5 business days of approval. In case of loss or irreparable damage, dobbi uses the Depreciation List of the Dutch Consumers' Association to determine compensation.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_016",
+    "question": "How long does the complaint investigation take?",
+    "answer": "Dobbi uses a maximum investigation period of 8 weeks after the complaint has been reported. If dobbi deems the complaint valid, compensation will be provided within 2 months, provided all necessary information has been submitted on time and in full.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_017",
+    "question": "What are the rules for Wash & Fold orders?",
+    "answer": "Wash & fold items are not individually tagged but processed per order. Dobbi is not liable for the loss of individual items. All items are washed at 30 degrees and dried at medium temperature. Wash labels are not individually checked, so dobbi is not liable for damage resulting from washing or drying.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_018",
+    "question": "What items should NOT be included in Wash & Fold orders?",
+    "answer": "Wash & Fold orders must not include shirts, blouses, table linens, items that require dry cleaning, or garments that cannot be tumble dried. If such items are found, they will be processed separately and charged according to the individual item pricing.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_019",
+    "question": "What about wedding dress cleaning?",
+    "answer": "Dobbi is not liable for damage to wedding dresses; cleaning is done at the customer's own risk. Wedding dresses require 2-3 weeks for delivery and special treatment.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_020",
+    "question": "What about leather and suede cleaning?",
+    "answer": "Dobbi is not liable for damage to leather and suede items; cleaning is done at the customer's own risk. These items require 2-3 weeks for delivery and special treatment.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_021",
+    "question": "What about duvet cleaning?",
+    "answer": "Dobbi is not liable for damage to duvets. These items require specific cleaning methods and have different delivery times. After cleaning, duvets are 100% hygienically clean, but yellow stains may still be visible.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_022",
+    "question": "What about curtain cleaning?",
+    "answer": "The cleaning of curtains is at all times carried out at the customer's own risk. Dobbi is not liable for relaxation shrinkage of up to 7%, nor for any damage resulting from sunlight, ageing, manufacturing defects, or other external factors. Dobbi is also not liable for the loss or disappearance of curtain accessories, such as hooks, rings, or other fastening materials.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_023",
+    "question": "What is the complaint procedure?",
+    "answer": "If you have a complaint, submit it to dobbi by phone, email, or post. Dobbi will respond within 2 business days. If a final response cannot be provided within this period, you will receive a confirmation within 2 days with an indication of when a detailed reply can be expected.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_024",
+    "question": "How do service points work?",
+    "answer": "After dropping off clothing at a service point, you receive a receipt confirming the service. At service points with a PostNL terminal, the receipt states the expected return date. At service points without a PostNL terminal, counter staff can provide an estimated delivery time. Dobbi is not liable for delays caused by factors beyond our control.",
+    "category": "terms",
+    "language": "en"
+  },
+  {
+    "id": "terms_025",
+    "question": "Where can I find the current prices?",
+    "answer": "Cleaning costs can be communicated by service counter staff. However, you are always referred to the online price list at www.dobbi.com/prijslijst for the most current rates.",
+    "category": "terms",
+    "language": "en"
+  }
+]
