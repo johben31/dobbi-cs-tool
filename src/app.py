@@ -15,6 +15,78 @@ st.set_page_config(
     layout="wide"
 )
 
+# Custom CSS with Dobbi brand colors
+st.markdown("""
+<style>
+    /* Primary button - Dobbi green */
+    .stButton > button[kind="primary"] {
+        background: linear-gradient(90deg, #85B17E, #7CB19D, #75B1B3);
+        border: none;
+        color: white;
+    }
+    .stButton > button[kind="primary"]:hover {
+        background: linear-gradient(90deg, #75A16E, #6CA18D, #65A1A3);
+        border: none;
+        color: white;
+    }
+    
+    /* Regular buttons */
+    .stButton > button {
+        border: 2px solid #85B17E;
+        color: #85B17E;
+    }
+    .stButton > button:hover {
+        border: 2px solid #75B1B3;
+        color: #75B1B3;
+    }
+    
+    /* Header styling */
+    h1 {
+        color: #85B17E !important;
+    }
+    
+    /* Subheaders */
+    h2, h3 {
+        color: #7CB19D !important;
+    }
+    
+    /* Metrics */
+    [data-testid="stMetricValue"] {
+        color: #85B17E;
+    }
+    
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #85B17E15, #75B1B315);
+    }
+    
+    /* Info boxes */
+    .stAlert {
+        border-left-color: #7CB19D;
+    }
+    
+    /* Text area focus */
+    .stTextArea textarea:focus {
+        border-color: #85B17E;
+    }
+    
+    /* Radio buttons */
+    .stRadio > div {
+        color: #85B17E;
+    }
+    
+    /* Expander */
+    .streamlit-expanderHeader {
+        color: #7CB19D;
+    }
+    
+    /* Divider */
+    hr {
+        border-color: #75B1B3;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 @st.cache_resource
 def load_pipeline():
     import os
@@ -27,6 +99,8 @@ def load_pipeline():
             indexer.index_faq("knowledge_base/faq_en.json")
         if os.path.exists("knowledge_base/faq_nl.json"):
             indexer.index_faq("knowledge_base/faq_nl.json")
+        if os.path.exists("knowledge_base/terms_en.json"):
+            indexer.index_faq("knowledge_base/terms_en.json")
         if os.path.exists("knowledge_base/prices.csv"):
             indexer.index_prices("knowledge_base/prices.csv")
     
@@ -63,7 +137,7 @@ with col1:
                 classification = classifier.classify(customer_message)
                 st.session_state['classification'] = classification
                 
-                retrieved_docs = retriever.retrieve(customer_message, k=10)
+                retrieved_docs = retriever.retrieve(customer_message, k=15)
                 st.session_state['retrieved_docs'] = retrieved_docs
                 
                 result = generator.generate(
@@ -106,7 +180,7 @@ with col2:
             if st.button("🔄 Regenerate", use_container_width=True):
                 st.rerun()
         with btn_col2:
-            if st.button("🚩 Flag Issue", use_container_width=True):
+            if st.button("👎 Bad Response", use_container_width=True):
                 st.warning("Flagged for review")
         with btn_col3:
             if st.button("📋 Copy", type="primary", use_container_width=True):
