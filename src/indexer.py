@@ -90,6 +90,8 @@ if __name__ == "__main__":
         indexer.index_faq("knowledge_base/faq_en.json")
     if os.path.exists("knowledge_base/faq_nl.json"):
         indexer.index_faq("knowledge_base/faq_nl.json")
+    if os.path.exists("knowledge_base/terms_en.json"):
+        indexer.index_faq("knowledge_base/terms_en.json")
     if os.path.exists("knowledge_base/prices.csv"):
         indexer.index_prices("knowledge_base/prices.csv")
     
