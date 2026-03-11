@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-HF_API_URL = "https://router.huggingface.co/pipeline/feature-extraction/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+HF_API_URL = "https://router.huggingface.co/hf-inference/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
 def get_embedding(text: str) -> list[float]:
     """Get embedding from HuggingFace API"""
