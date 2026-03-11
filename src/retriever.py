@@ -12,11 +12,12 @@ def get_embedding(text: str) -> list[float]:
     response = requests.post(
         HF_API_URL,
         headers={"Authorization": f"Bearer {os.getenv('HF_API_TOKEN', '')}"},
-        json={"inputs": text, "options": {"wait_for_model": True}}
+        json={"inputs": {"source_sentence": text, "sentences": [text]}}
     )
     if response.status_code != 200:
         raise Exception(f"HuggingFace API error: {response.text}")
-    return response.json()
+    result = response.json()
+    return result
 
 class DobbiRetriever:
     def __init__(self, db_path: str = "./chroma_db"):
