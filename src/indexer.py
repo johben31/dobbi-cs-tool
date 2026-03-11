@@ -1,30 +1,52 @@
-from sentence_transformers import SentenceTransformer
-import chromadb
 import json
-import pandas as pd
 import os
+import requests
+import chromadb
+from chromadb.config import Settings
+import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
+
+HF_API_URL = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+
+def get_embeddings(texts: list[str]) -> list[list[float]]:
+    """Get embeddings from HuggingFace API"""
+    response = requests.post(
+        HF_API_URL,
+        headers={"Authorization": f"Bearer {os.getenv('HF_API_TOKEN', '')}"},
+        json={"inputs": texts, "options": {"wait_for_model": True}}
+    )
+    if response.status_code != 200:
+        raise Exception(f"HuggingFace API error: {response.text}")
+    return response.json()
 
 class KnowledgeBaseIndexer:
-    def __init__(self, db_path="./chroma_db"):
-        print("Loading embedding model...")
-        self.embedding_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+    def __init__(self, db_path: str = "./chroma_db"):
+        print("Initializing indexer with HuggingFace API...")
+        self.client = chromadb.PersistentClient(path=db_path)
         
-        self.chroma_client = chromadb.PersistentClient(path=db_path)
-        self.collection = self.chroma_client.get_or_create_collection(
+        try:
+            self.client.delete_collection("dobbi_kb")
+        except:
+            pass
+        
+        self.collection = self.client.create_collection(
             name="dobbi_kb",
             metadata={"hnsw:space": "cosine"}
         )
         print("Indexer ready!")
     
-    def index_faq(self, faq_json_path: str):
-        with open(faq_json_path, 'r', encoding='utf-8') as f:
-            faq_data = json.load(f)
+    def index_faq(self, json_path: str):
+        """Index FAQ items from JSON file"""
+        with open(json_path, 'r', encoding='utf-8') as f:
+            faq_items = json.load(f)
         
         documents = []
         ids = []
         metadatas = []
         
-        for item in faq_data:
+        for item in faq_items:
             doc_text = f"Question: {item['question']}\nAnswer: {item['answer']}"
             documents.append(doc_text)
             ids.append(item['id'])
@@ -35,7 +57,7 @@ class KnowledgeBaseIndexer:
             })
         
         print(f"Embedding {len(documents)} FAQ items...")
-        embeddings = self.embedding_model.encode(documents).tolist()
+        embeddings = get_embeddings(documents)
         
         self.collection.add(
             ids=ids,
@@ -43,7 +65,7 @@ class KnowledgeBaseIndexer:
             documents=documents,
             metadatas=metadatas
         )
-        print(f"Indexed {len(documents)} FAQ items from {faq_json_path}")
+        print(f"Indexed {len(documents)} FAQ items from {json_path}")
     
     def index_prices(self, csv_path: str):
         """Index price list from CSV"""
@@ -64,7 +86,7 @@ class KnowledgeBaseIndexer:
             })
         
         print(f"Embedding {len(documents)} price items...")
-        embeddings = self.embedding_model.encode(documents).tolist()
+        embeddings = get_embeddings(documents)
         
         self.collection.add(
             ids=ids,
@@ -73,15 +95,6 @@ class KnowledgeBaseIndexer:
             metadatas=metadatas
         )
         print(f"Indexed {len(documents)} price items from {csv_path}")
-    
-    def clear_index(self):
-        self.chroma_client.delete_collection("dobbi_kb")
-        self.collection = self.chroma_client.get_or_create_collection(
-            name="dobbi_kb",
-            metadata={"hnsw:space": "cosine"}
-        )
-        print("Index cleared!")
-
 
 if __name__ == "__main__":
     indexer = KnowledgeBaseIndexer()
