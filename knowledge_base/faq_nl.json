@@ -194,5 +194,47 @@
     "answer": "Je hoeft pas te betalen nadat je items zijn verwerkt. Zodra alles klaar is, sturen we je een e-mail met een overzicht en een beveiligde betaallink.",
     "category": "general",
     "language": "nl"
+  },
+  {
+    "id": "faq_nl_delivery_01",
+    "question": "Hoe lang duurt het om normale kleding te reinigen?",
+    "answer": "Normale kleding zoals kostuums, overhemden, rokken en broeken duurt 72 uur (3 werkdagen) om te reinigen en terug te sturen.",
+    "category": "delivery",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_delivery_02",
+    "question": "Hoe lang duurt was en vouw?",
+    "answer": "Was en vouw bestellingen duren 72 uur (3 werkdagen) om te voltooien.",
+    "category": "delivery",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_delivery_03",
+    "question": "Hoe lang duurt het om beddengoed te reinigen?",
+    "answer": "Beddengoed zoals dekbedden en kussens duurt 72 uur plus 1 werkdag (4 werkdagen totaal) om te reinigen en terug te sturen.",
+    "category": "delivery",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_delivery_04",
+    "question": "Hoe lang duurt het om een bruidsjurk te reinigen?",
+    "answer": "Bruidsjurken duren 14 werkdagen om te reinigen en terug te sturen.",
+    "category": "delivery",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_delivery_05",
+    "question": "Hoe lang duurt het om leren items te reinigen?",
+    "answer": "Leren items duren 14 werkdagen om te reinigen en terug te sturen.",
+    "category": "delivery",
+    "language": "nl"
+  },
+  {
+    "id": "faq_nl_delivery_06",
+    "question": "Hoe lang duurt het om gordijnen te reinigen?",
+    "answer": "Alle soorten gordijnen duren 72 uur plus 2 werkdagen (5 werkdagen totaal) om te reinigen en terug te sturen.",
+    "category": "delivery",
+    "language": "nl"
   }
 ]
