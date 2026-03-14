@@ -194,5 +194,47 @@
     "answer": "You'll only need to pay after your items have been processed. Once everything is ready, we'll send you an email with an overview and a secure payment link.",
     "category": "payment",
     "language": "en"
+  },
+  {
+    "id": "faq_delivery_01",
+    "question": "How long does it take to clean normal clothing?",
+    "answer": "Normal clothing like costumes, shirts, skirts, and trousers takes 72 hours (3 working days) to clean and return.",
+    "category": "delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_delivery_02",
+    "question": "How long does wash and fold take?",
+    "answer": "Wash and fold orders take 72 hours (3 working days) to complete.",
+    "category": "delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_delivery_03",
+    "question": "How long does it take to clean bedding?",
+    "answer": "Bedding items like duvets and pillows take 72 hours plus 1 working day (4 working days total) to clean and return.",
+    "category": "delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_delivery_04",
+    "question": "How long does it take to clean a bridal dress?",
+    "answer": "Bridal dresses take 14 working days to clean and return.",
+    "category": "delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_delivery_05",
+    "question": "How long does it take to clean leather items?",
+    "answer": "Leather items take 14 working days to clean and return.",
+    "category": "delivery",
+    "language": "en"
+  },
+  {
+    "id": "faq_delivery_06",
+    "question": "How long does it take to clean curtains?",
+    "answer": "All types of curtains take 72 hours plus 2 working days (5 working days total) to clean and return.",
+    "category": "delivery",
+    "language": "en"
   }
 ]
