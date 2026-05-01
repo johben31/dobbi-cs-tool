@@ -1,6 +1,9 @@
 import streamlit as st
 import sys
 import os
+import json
+from datetime import datetime, timedelta
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -8,6 +11,83 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from classifier import QuestionClassifier
 from retriever import DobbiRetriever
 from generator import ResponseGenerator
+
+STATS_FILE = Path(__file__).parent.parent / "stats.json"
+
+
+def load_stats() -> list[dict]:
+    """Load usage statistics from JSON file."""
+    if STATS_FILE.exists():
+        try:
+            with open(STATS_FILE, "r") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, IOError):
+            return []
+    return []
+
+
+def save_stats(stats: list[dict]) -> None:
+    """Save usage statistics to JSON file."""
+    with open(STATS_FILE, "w") as f:
+        json.dump(stats, f, indent=2)
+
+
+def record_analysis(category: str, confidence: float, message_length: int) -> None:
+    """Record a message analysis to the stats file."""
+    stats = load_stats()
+    stats.append({
+        "timestamp": datetime.now().isoformat(),
+        "category": category,
+        "confidence": confidence,
+        "message_length": message_length
+    })
+    save_stats(stats)
+
+
+def compute_stats(stats: list[dict]) -> dict:
+    """Compute aggregate statistics from raw data."""
+    if not stats:
+        return {
+            "total": 0,
+            "category_breakdown": {},
+            "avg_confidence": 0,
+            "today": 0,
+            "this_week": 0
+        }
+
+    now = datetime.now()
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    week_start = today_start - timedelta(days=now.weekday())
+
+    category_counts = {}
+    total_confidence = 0
+    today_count = 0
+    week_count = 0
+
+    for entry in stats:
+        category = entry["category"]
+        category_counts[category] = category_counts.get(category, 0) + 1
+        total_confidence += entry["confidence"]
+
+        entry_time = datetime.fromisoformat(entry["timestamp"])
+        if entry_time >= today_start:
+            today_count += 1
+        if entry_time >= week_start:
+            week_count += 1
+
+    total = len(stats)
+    category_breakdown = {
+        cat: count / total for cat, count in category_counts.items()
+    }
+
+    return {
+        "total": total,
+        "category_breakdown": category_breakdown,
+        "avg_confidence": total_confidence / total,
+        "today": today_count,
+        "this_week": week_count
+    }
+
 
 st.set_page_config(
     page_title="Dobbi CS Assistant",
@@ -147,6 +227,12 @@ with col1:
                 )
                 st.session_state['result'] = result
                 st.session_state['analyzed'] = True
+
+                record_analysis(
+                    category=classification['category'],
+                    confidence=classification['confidence'],
+                    message_length=len(customer_message)
+                )
         else:
             st.warning("Please enter a customer message first.")
 
@@ -191,4 +277,23 @@ with col2:
 
 with st.sidebar:
     st.header("📊 Stats")
-    st.caption("Coming soon: usage statistics")
+
+    stats_data = load_stats()
+    computed = compute_stats(stats_data)
+
+    st.metric("Total Messages", computed["total"])
+
+    col_today, col_week = st.columns(2)
+    col_today.metric("Today", computed["today"])
+    col_week.metric("This Week", computed["this_week"])
+
+    if computed["total"] > 0:
+        st.metric("Avg Confidence", f"{computed['avg_confidence']:.0%}")
+
+        st.subheader("Category Breakdown")
+        for category, pct in sorted(
+            computed["category_breakdown"].items(),
+            key=lambda x: x[1],
+            reverse=True
+        ):
+            st.progress(pct, text=f"{category}: {pct:.0%}")
