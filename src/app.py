@@ -289,20 +289,7 @@ with col2:
             if st.button("👎 Bad Response", use_container_width=True):
                 st.warning("Flagged for review")
     else:
-        # Placeholder metrics to align with left column
-        col_a, col_b, col_c = st.columns(3)
-        col_a.metric("Category", "-")
-        col_b.metric("Confidence", "-")
-        col_c.metric("Sentiment", "-")
-        
-        st.text_area(
-            "Draft response will appear here",
-            value="",
-            height=200,
-            disabled=True
-        )
-        
-        st.button("📋 Copy Response", type="primary", use_container_width=True, disabled=True)
+        st.info("👈 Paste a customer message and click 'Analyze' to get started.")
 
 with st.sidebar:
     st.header("📊 Stats")
