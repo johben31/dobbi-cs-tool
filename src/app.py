@@ -324,14 +324,15 @@ with st.sidebar:
             showlegend=True,
             legend=dict(orientation="h", yanchor="bottom", y=-0.3),
             margin=dict(t=0, b=0, l=0, r=0),
-            height=250,
+            height=180,
             paper_bgcolor='rgba(0,0,0,0)',
             plot_bgcolor='rgba(0,0,0,0)'
         )
         fig.update_traces(
             textposition='outside', 
-            textinfo='label+percent',
-            hoverinfo='none'
+            textinfo='percent',
+            hovertemplate=None,
+            hoverinfo='skip'
         )
         
         st.plotly_chart(
