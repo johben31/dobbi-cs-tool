@@ -15,6 +15,11 @@ from generator import ResponseGenerator
 STATS_FILE = Path(__file__).parent.parent / "stats.json"
 
 
+def format_category_name(category: str) -> str:
+    """Convert category_code to Category Name."""
+    return category.replace("_", " ").title()
+
+
 def load_stats() -> list[dict]:
     """Load usage statistics from JSON file."""
     if STATS_FILE.exists():
@@ -243,9 +248,9 @@ with col2:
         cls = st.session_state['classification']
         
         col_a, col_b, col_c = st.columns(3)
-        col_a.metric("Category", cls['category'])
+        col_a.metric("Category", format_category_name(cls['category']))
         col_b.metric("Confidence", f"{cls['confidence']:.0%}")
-        col_c.metric("Sentiment", cls['sentiment'])
+        col_c.metric("Sentiment", cls['sentiment'].title())
         
         result = st.session_state['result']
         
@@ -295,21 +300,23 @@ with st.sidebar:
         # Pie chart
         import plotly.express as px
         
-        categories = list(computed["category_breakdown"].keys())
-        values = [computed["category_breakdown"][cat] * 100 for cat in categories]
+        categories = [format_category_name(cat) for cat in computed["category_breakdown"].keys()]
+        values = [pct * 100 for pct in computed["category_breakdown"].values()]
         
         fig = px.pie(
             names=categories,
             values=values,
             hole=0.4,
-            color_discrete_sequence=['#85B17E', '#7CB19D', '#75B1B3', '#5A9E8F', '#4A8E7F']
+            color_discrete_sequence=['#85B17E', '#E07A5F', '#F2CC8F', '#81B29A', '#3D405B']
         )
         fig.update_layout(
             showlegend=True,
             legend=dict(orientation="h", yanchor="bottom", y=-0.3),
             margin=dict(t=0, b=0, l=0, r=0),
-            height=250
+            height=250,
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)'
         )
-        fig.update_traces(textposition='inside', textinfo='percent+label')
+        fig.update_traces(textposition='outside', textinfo='label+percent')
         
         st.plotly_chart(fig, use_container_width=True)
