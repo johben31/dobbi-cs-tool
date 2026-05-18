@@ -103,6 +103,11 @@ st.set_page_config(
 # Custom CSS with Dobbi brand colors
 st.markdown("""
 <style>
+    /* Reduce top padding */
+    .block-container {
+        padding-top: 1rem !important;
+    }
+    
     /* Primary button - Dobbi green */
     .stButton > button[kind="primary"] {
         background: linear-gradient(90deg, #85B17E, #7CB19D, #75B1B3);
@@ -128,6 +133,7 @@ st.markdown("""
     /* Header styling */
     h1 {
         color: #85B17E !important;
+        margin-bottom: 0.5rem !important;
     }
     
     /* Subheaders */
@@ -201,7 +207,7 @@ def load_pipeline():
 classifier, retriever, generator = load_pipeline()
 
 st.title("🧺 Dobbi CS Assistant")
-st.markdown("*AI-powered draft responses for customer service*")
+st.caption("AI-powered draft responses for customer service")
 
 col1, col2 = st.columns(2)
 
@@ -216,7 +222,7 @@ with col1:
     
     customer_message = st.text_area(
         "Paste customer message here",
-        height=200,
+        height=150,
         placeholder="Hoi, hoeveel kost het om een winterjas te reinigen?"
     )
     
@@ -261,7 +267,7 @@ with col2:
         edited_response = st.text_area(
             "Draft response (edit if needed)",
             value=result['draft_response'],
-            height=300
+            height=200
         )
         
         # Main copy button - full width, prominent
