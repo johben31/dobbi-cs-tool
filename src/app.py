@@ -222,7 +222,7 @@ with col1:
     
     customer_message = st.text_area(
         "Paste customer message here",
-        height=200,
+        height=150,
         placeholder="Hoi, hoeveel kost het om een winterjas te reinigen?"
     )
     
