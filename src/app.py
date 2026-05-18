@@ -291,9 +291,25 @@ with st.sidebar:
         st.metric("Avg Confidence", f"{computed['avg_confidence']:.0%}")
 
         st.subheader("Category Breakdown")
-        for category, pct in sorted(
-            computed["category_breakdown"].items(),
-            key=lambda x: x[1],
-            reverse=True
-        ):
-            st.progress(pct, text=f"{category}: {pct:.0%}")
+        
+        # Pie chart
+        import plotly.express as px
+        
+        categories = list(computed["category_breakdown"].keys())
+        values = [computed["category_breakdown"][cat] * 100 for cat in categories]
+        
+        fig = px.pie(
+            names=categories,
+            values=values,
+            hole=0.4,
+            color_discrete_sequence=['#85B17E', '#7CB19D', '#75B1B3', '#5A9E8F', '#4A8E7F']
+        )
+        fig.update_layout(
+            showlegend=True,
+            legend=dict(orientation="h", yanchor="bottom", y=-0.3),
+            margin=dict(t=0, b=0, l=0, r=0),
+            height=250
+        )
+        fig.update_traces(textposition='inside', textinfo='percent+label')
+        
+        st.plotly_chart(fig, use_container_width=True)
