@@ -1,5 +1,7 @@
 from anthropic import Anthropic
 from dotenv import load_dotenv
+from dobbi_api import get_order_status, format_order_status, extract_order_number
+
 load_dotenv()
 
 RESPONSE_PROMPT = """You are a customer service assistant for Dobbi, a Dutch dry cleaning company.
@@ -11,6 +13,7 @@ RULES:
 - Use prices from the knowledge base. If a price is not available, say so briefly.
 - Match the customer's language (Dutch or English).
 - Keep responses short: 3-6 sentences max for simple questions.
+- If order information is provided below, use it to answer the customer's question about their order.
 - Sign off with "Groetjes, Team Dobbi" (Dutch) or "Best regards, Team Dobbi" (English).
 
 CUSTOMER MESSAGE:
@@ -18,16 +21,31 @@ CUSTOMER MESSAGE:
 
 CATEGORY: {category}
 
+{order_info_section}
+
 KNOWLEDGE BASE:
 {retrieved_context}
 
 Write a short, helpful response answering ONLY what the customer asked."""
+
 
 class ResponseGenerator:
     def __init__(self):
         self.client = Anthropic()
     
     def generate(self, customer_message: str, category: str, retrieved_docs: list[dict]) -> dict:
+        # Check if message contains an order number
+        order_number = extract_order_number(customer_message)
+        order_info_section = ""
+        
+        if order_number:
+            order_data = get_order_status(order_number)
+            if order_data:
+                formatted_order = format_order_status(order_data)
+                order_info_section = f"ORDER INFORMATION (for order {order_number}):\n{formatted_order}"
+            else:
+                order_info_section = f"ORDER INFORMATION: Order {order_number} not found in system."
+        
         context = "\n\n".join([
             f"[Source: {doc['metadata']['source']}]\n{doc['content']}"
             for doc in retrieved_docs
@@ -44,6 +62,7 @@ class ResponseGenerator:
                 "content": RESPONSE_PROMPT.format(
                     customer_message=customer_message,
                     category=category,
+                    order_info_section=order_info_section,
                     retrieved_context=context
                 )
             }]
@@ -54,7 +73,8 @@ class ResponseGenerator:
         return {
             "draft_response": response.content[0].text,
             "sources_used": [doc['metadata']['source'] for doc in retrieved_docs],
-            "confidence": confidence
+            "confidence": confidence,
+            "order_number": order_number
         }
     
     def _estimate_confidence(self, docs: list[dict]) -> float:
@@ -66,23 +86,3 @@ class ResponseGenerator:
         avg_distance = sum(distances) / len(distances)
         confidence = max(0.3, min(0.95, 1 - avg_distance))
         return round(confidence, 2)
-
-if __name__ == "__main__":
-    generator = ResponseGenerator()
-    
-    sample_docs = [
-        {
-            "content": "Winter coat (Winterjas): €26.50",
-            "metadata": {"source": "price_list"},
-            "distance": 0.25
-        }
-    ]
-    
-    result = generator.generate(
-        customer_message="Hoeveel kost het om een winterjas te laten reinigen?",
-        category="pricing",
-        retrieved_docs=sample_docs
-    )
-    
-    print("Generated response:")
-    print(result["draft_response"])
