@@ -135,9 +135,13 @@ st.markdown("""
         color: #7CB19D !important;
     }
     
-    /* Metrics */
+    /* Metrics - smaller font */
     [data-testid="stMetricValue"] {
         color: #85B17E;
+        font-size: 1rem !important;
+    }
+    [data-testid="stMetricLabel"] {
+        font-size: 0.8rem !important;
     }
     
     /* Sidebar */
@@ -260,23 +264,24 @@ with col2:
             height=300
         )
         
+        # Main copy button - full width, prominent
+        if st.button("📋 Copy Response", type="primary", use_container_width=True):
+            st.code(edited_response, language=None)
+            st.success("Response ready to copy!")
+        
         with st.expander("📚 Sources used"):
             for doc in st.session_state['retrieved_docs'][:3]:
                 st.markdown(f"**{doc['metadata']['source']}** (distance: {doc['distance']:.3f})")
                 st.caption(doc['content'][:200])
                 st.divider()
         
-        btn_col1, btn_col2, btn_col3 = st.columns(3)
+        btn_col1, btn_col2 = st.columns(2)
         with btn_col1:
             if st.button("🔄 Regenerate", use_container_width=True):
                 st.rerun()
         with btn_col2:
             if st.button("👎 Bad Response", use_container_width=True):
                 st.warning("Flagged for review")
-        with btn_col3:
-            if st.button("📋 Copy", type="primary", use_container_width=True):
-                st.write("Response copied!")
-                st.code(edited_response, language=None)
     else:
         st.info("👈 Paste a customer message and click 'Analyze' to get started.")
 
@@ -317,6 +322,14 @@ with st.sidebar:
             paper_bgcolor='rgba(0,0,0,0)',
             plot_bgcolor='rgba(0,0,0,0)'
         )
-        fig.update_traces(textposition='outside', textinfo='label+percent')
+        fig.update_traces(
+            textposition='outside', 
+            textinfo='label+percent',
+            hoverinfo='none'
+        )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(
+            fig, 
+            use_container_width=True,
+            config={'displayModeBar': False}
+        )
