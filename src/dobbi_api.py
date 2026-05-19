@@ -72,6 +72,42 @@ def format_order_status(order_data: dict) -> str:
     
     return result
 
+def get_order_details(order_data: dict) -> dict | None:
+    """
+    Extract internal details for CS agents from order data.
+    """
+    if not order_data:
+        return None
+    
+    carrier = order_data.get("type", "Unknown")
+    
+    # Get shipment info from pickup or delivery
+    shipment = None
+    packages = []
+    
+    pickup = order_data.get("pickup", {})
+    delivery = order_data.get("delivery", {})
+    
+    if pickup.get("shipment"):
+        shipment = pickup["shipment"]
+    if delivery.get("shipment"):
+        shipment = delivery["shipment"]
+    
+    shipment_id = shipment.get("id") if shipment else None
+    
+    if shipment and shipment.get("barcodes"):
+        for barcode in shipment["barcodes"]:
+            packages.append({
+                "barcode": barcode.get("barcode"),
+                "status": barcode.get("status") or "Pending"
+            })
+    
+    return {
+        "carrier": carrier.title(),
+        "shipment_id": shipment_id,
+        "package_count": len(packages),
+        "packages": packages
+    }
 
 def extract_order_number(text: str) -> str | None:
     """
