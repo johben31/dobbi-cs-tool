@@ -1,6 +1,6 @@
 from anthropic import Anthropic
 from dotenv import load_dotenv
-from dobbi_api import get_order_status, format_order_status, extract_order_number
+from dobbi_api import get_order_status, format_order_status, extract_order_number, get_order_details
 from datetime import datetime
 
 load_dotenv()
@@ -46,11 +46,13 @@ class ResponseGenerator:
         order_number = extract_order_number(customer_message)
         order_info_section = ""
         
+        order_details = None
         if order_number:
             order_data = get_order_status(order_number)
             if order_data:
                 formatted_order = format_order_status(order_data)
                 order_info_section = f"ORDER INFORMATION (for order {order_number}):\n{formatted_order}"
+                order_details = get_order_details(order_data)
             else:
                 order_info_section = f"ORDER INFORMATION: Order {order_number} not found in system."
         
@@ -83,7 +85,8 @@ class ResponseGenerator:
             "draft_response": response.content[0].text,
             "sources_used": [doc['metadata']['source'] for doc in retrieved_docs],
             "confidence": confidence,
-            "order_number": order_number
+            "order_number": order_number,
+            "order_details": order_details,
         }
     
     def _estimate_confidence(self, docs: list[dict]) -> float:
