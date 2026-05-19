@@ -284,6 +284,15 @@ with col2:
             st.code(edited_response, language=None)
             st.success("Click the copy icon above ☝️")
 
+        # Regenerate and Bad Response buttons
+        btn_col1, btn_col2 = st.columns(2)
+        with btn_col1:
+            if st.button("🔄 Regenerate", use_container_width=True):
+                st.rerun()
+        with btn_col2:
+            if st.button("👎 Bad Response", use_container_width=True):
+                st.warning("Flagged for review")
+
         # Internal order details panel (only for order queries)
         if result.get('order_details'):
             st.divider()
@@ -301,19 +310,12 @@ with col2:
                         status_icon = "✅" if pkg['status'] == "Order succesvol uitgevoerd" else "⏳"
                         st.text(f"{status_icon} {pkg['barcode']}: {pkg['status']}")
         
+        # Sources expander at the bottom
         with st.expander("📚 Sources used"):
             for doc in st.session_state['retrieved_docs'][:3]:
                 st.markdown(f"**{doc['metadata']['source']}** (distance: {doc['distance']:.3f})")
                 st.caption(doc['content'][:200])
                 st.divider()
-        
-        btn_col1, btn_col2 = st.columns(2)
-        with btn_col1:
-            if st.button("🔄 Regenerate", use_container_width=True):
-                st.rerun()
-        with btn_col2:
-            if st.button("👎 Bad Response", use_container_width=True):
-                st.warning("Flagged for review")
     else:
         st.info("👈 Paste a customer message and click 'Analyze' to get started.")
 
