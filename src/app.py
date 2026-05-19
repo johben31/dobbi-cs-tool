@@ -270,10 +270,28 @@ with col2:
             height=200
         )
         
-        # Main copy button - full width, prominent
-        if st.button("📋 Copy Response", type="primary", use_container_width=True):
-            st.code(edited_response, language=None)
-            st.success("Response ready to copy!")
+        # Copy to clipboard using JavaScript
+        st.markdown(f'''
+            <textarea id="response-text" style="position: absolute; left: -9999px;">{edited_response}</textarea>
+            <button onclick="
+                var text = document.getElementById('response-text');
+                text.style.position = 'static';
+                text.select();
+                document.execCommand('copy');
+                text.style.position = 'absolute';
+                this.innerText = '✅ Copied!';
+                setTimeout(() => this.innerText = '📋 Copy Response', 2000);
+            " style="
+                width: 100%;
+                padding: 0.5rem 1rem;
+                background: linear-gradient(90deg, #85B17E, #7CB19D, #75B1B3);
+                border: none;
+                border-radius: 0.5rem;
+                color: white;
+                font-size: 1rem;
+                cursor: pointer;
+            ">📋 Copy Response</button>
+        ''', unsafe_allow_html=True)
         
         with st.expander("📚 Sources used"):
             for doc in st.session_state['retrieved_docs'][:3]:
