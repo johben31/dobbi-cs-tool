@@ -274,6 +274,23 @@ with col2:
         if st.button("📋 Copy Response", type="primary", use_container_width=True):
             st.code(edited_response, language=None)
             st.success("Click the copy icon above ☝️")
+
+        # Internal order details panel (only for order queries)
+        if result.get('order_details'):
+            st.divider()
+            st.subheader("📦 Internal Order Details")
+            details = result['order_details']
+            
+            col_d1, col_d2, col_d3 = st.columns(3)
+            col_d1.metric("Carrier", details['carrier'])
+            col_d2.metric("Shipment ID", details['shipment_id'] or "N/A")
+            col_d3.metric("Packages", details['package_count'])
+            
+            if details['packages']:
+                with st.expander("Package Details"):
+                    for pkg in details['packages']:
+                        status_icon = "✅" if pkg['status'] == "Order succesvol uitgevoerd" else "⏳"
+                        st.text(f"{status_icon} {pkg['barcode']}: {pkg['status']}")
         
         with st.expander("📚 Sources used"):
             for doc in st.session_state['retrieved_docs'][:3]:
