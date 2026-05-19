@@ -190,6 +190,13 @@ def load_pipeline():
     # Auto-index if database doesn't exist
     if not os.path.exists("./chroma_db"):
         indexer = KnowledgeBaseIndexer()
+        
+        print("Checking knowledge base files...")
+        print(f"faq_en.json exists: {os.path.exists('knowledge_base/faq_en.json')}")
+        print(f"faq_nl.json exists: {os.path.exists('knowledge_base/faq_nl.json')}")
+        print(f"terms_en.json exists: {os.path.exists('knowledge_base/terms_en.json')}")
+        print(f"prices.csv exists: {os.path.exists('knowledge_base/prices.csv')}")
+        
         if os.path.exists("knowledge_base/faq_en.json"):
             indexer.index_faq("knowledge_base/faq_en.json")
         if os.path.exists("knowledge_base/faq_nl.json"):
@@ -198,6 +205,8 @@ def load_pipeline():
             indexer.index_faq("knowledge_base/terms_en.json")
         if os.path.exists("knowledge_base/prices.csv"):
             indexer.index_prices("knowledge_base/prices.csv")
+        
+        print(f"Total items indexed: {indexer.collection.count()}")
     
     classifier = QuestionClassifier()
     retriever = DobbiRetriever(db_path="./chroma_db")
