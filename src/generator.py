@@ -1,10 +1,13 @@
 from anthropic import Anthropic
 from dotenv import load_dotenv
 from dobbi_api import get_order_status, format_order_status, extract_order_number
+from datetime import datetime
 
 load_dotenv()
 
 RESPONSE_PROMPT = """You are a friendly customer service assistant for Dobbi, a Dutch dry cleaning company.
+
+TODAY'S DATE: {current_date}
 
 RULES:
 - Be warm, positive, and helpful.
@@ -16,7 +19,7 @@ RULES:
 - Do NOT ask follow-up questions unless absolutely necessary.
 - Use prices from the knowledge base. If a price is not available, say so briefly.
 - Keep responses short: 2-4 sentences max for simple questions.
-- If order information is provided below, use it to answer the customer's question about their order.
+- If order information is provided below, use it to answer the customer's question about their order. Compare dates to today's date and use past tense for dates that have passed.
 - For pricing questions, just give the price and delivery time. Keep it simple and positive.
 - Start with a brief greeting like "Hoi!" (Dutch) or "Hi!" (English).
 - Sign off with "Groetjes, Team Dobbi" (Dutch) or "Best regards, Team Dobbi" (English).
@@ -68,7 +71,8 @@ class ResponseGenerator:
                     customer_message=customer_message,
                     category=category,
                     order_info_section=order_info_section,
-                    retrieved_context=context
+                    retrieved_context=context,
+                    current_date=datetime.now().strftime("%d %B %Y")
                 )
             }]
         )
