@@ -7,22 +7,23 @@ AI-powered customer support tool that helps Dobbi's CS team draft responses fast
 1. CS employee pastes a customer message (email/WhatsApp)
 2. Tool classifies the question (pricing, order status, complaint, etc.)
 3. Tool finds relevant info from FAQ, price list, and terms & conditions
-4. Tool generates a draft response in the same language (Dutch or English)
-5. CS employee reviews, edits if needed, and sends to customer
+4. Tool fetches real-time order data from Dobbi API (if barcode detected)
+5. Tool generates a draft response in the same language (Dutch or English)
+6. CS employee reviews, edits if needed, and sends to customer
 
 ## Live Demo
 
-The tool is deployed and accessible at:
-**[https://dobbi-cs-tool-production.up.railway.app](https://dobbi-cs-tool-production.up.railway.app)**
+The tool is deployed and accessible at: https://dobbi-cs-tool-production.up.railway.app
 
 ## Tech Stack
 
 | Component | Technology |
 |-----------|------------|
-| Frontend | Streamlit |
-| LLM | Claude API (Anthropic) |
-| Embeddings | HuggingFace Inference API |
+| Frontend | Streamlit 1.31.0 |
+| LLM | Claude API (Anthropic) - claude-sonnet-4-20250514 |
+| Embeddings | HuggingFace Inference API (paraphrase-multilingual-MiniLM-L12-v2) |
 | Vector Database | ChromaDB |
+| Order Data | Dobbi API (midlayer.dobbi.com) |
 | Hosting | Railway |
 | Language | Python 3.12 |
 
@@ -32,30 +33,35 @@ The tool is deployed and accessible at:
 Customer Message
        │
        ▼
-   [Claude API] ──→ Category (pricing/complaint/etc)
+   [Claude API] ──→ Category (pricing/order_status/complaint/etc)
        │
-       ▼
-   [HuggingFace API] ──→ Embedding vector
-       │
-       ▼
-   [ChromaDB] ──→ 15 relevant FAQ/price items
-       │
-       ▼
-   [Claude API] ──→ Draft response in Dutch/English
-       │
-       ▼
-   Display to CS employee
+       ├──────────────────────────────┐
+       ▼                              ▼
+   [HuggingFace API]             [Dobbi API]
+       │                              │
+       ▼                              │
+   [ChromaDB]                         │
+       │                              │
+       ▼                              ▼
+   15 relevant docs              Order status data
+       │                              │
+       └──────────────┬───────────────┘
+                      ▼
+               [Claude API] ──→ Draft response
+                      │
+                      ▼
+              Display to CS employee
 ```
 
 ## Knowledge Base
 
 | Source | Items | Description |
 |--------|-------|-------------|
-| faq_en.json | 28 | English FAQ |
-| faq_nl.json | 28 | Dutch FAQ |
+| faq_en.json | 34 | English FAQ |
+| faq_nl.json | 34 | Dutch FAQ |
 | terms_en.json | 25 | Terms & Conditions |
-| prices.csv | 70 | Price list |
-| **Total** | **151** | |
+| prices.csv | 91 | Price list |
+| **Total** | **184** | |
 
 ## Local Development
 
@@ -64,6 +70,7 @@ Customer Message
 - Python 3.10 or higher
 - Claude API key from Anthropic
 - HuggingFace API token
+- Dobbi API key
 
 ### Setup
 
@@ -84,9 +91,11 @@ cp .env.example .env
 ```
 
 Then open `.env` and add your API keys:
+
 ```
 ANTHROPIC_API_KEY=sk-ant-your-key-here
 HF_API_TOKEN=hf_your-token-here
+DOBBI_API_KEY=your-dobbi-api-key-here
 ```
 
 ### Index the knowledge base
@@ -96,13 +105,13 @@ python src/indexer.py
 ```
 
 You should see:
+
 ```
 Initializing indexer with HuggingFace API...
 Indexer ready!
-Embedding 28 FAQ items...
-Indexed 28 FAQ items from knowledge_base/faq_en.json
+Embedding 34 FAQ items...
 ...
-Total items in index: 151
+Total items in index: 184
 ```
 
 ### Run the app
@@ -122,18 +131,20 @@ Press `Ctrl + C` in the terminal.
 ```
 dobbi-cs-tool/
 ├── knowledge_base/
-│   ├── faq_en.json       # English FAQ (28 items)
-│   ├── faq_nl.json       # Dutch FAQ (28 items)
+│   ├── faq_en.json       # English FAQ (34 items)
+│   ├── faq_nl.json       # Dutch FAQ (34 items)
 │   ├── terms_en.json     # Terms & Conditions (25 items)
-│   └── prices.csv        # Price list (70 items)
+│   └── prices.csv        # Price list (91 items)
 ├── src/
 │   ├── indexer.py        # Embeds knowledge via HuggingFace API
 │   ├── retriever.py      # Semantic search via HuggingFace API
 │   ├── classifier.py     # Categorizes questions (Claude API)
 │   ├── generator.py      # Generates responses (Claude API)
+│   ├── dobbi_api.py      # Dobbi order tracking API integration
 │   ├── pipeline.py       # Connects everything
 │   └── app.py            # Streamlit UI
 ├── chroma_db/            # Vector database (created after indexing)
+├── stats.json            # Usage statistics (auto-created)
 ├── requirements.txt
 ├── Procfile              # Railway deployment config
 ├── .python-version       # Python version for Railway
@@ -152,7 +163,7 @@ When you add new FAQ items or update prices:
 
 ## Deployment
 
-The app is deployed on Railway. Any push to the `main` branch triggers auto-deployment.
+The app is deployed on Railway. Any push to the main branch triggers auto-deployment.
 
 ### Environment Variables (Railway)
 
@@ -160,21 +171,30 @@ The app is deployed on Railway. Any push to the `main` branch triggers auto-depl
 |----------|-------------|
 | ANTHROPIC_API_KEY | Claude API key |
 | HF_API_TOKEN | HuggingFace API token |
+| DOBBI_API_KEY | Dobbi order tracking API key |
+
+### Docker Deployment (Alternative)
+
+```bash
+docker build -t dobbi-cs-tool .
+docker run -p 8501:8501 --env-file .env dobbi-cs-tool
+```
 
 ## API Costs
 
 | API | Cost | Free Tier |
 |-----|------|-----------|
-| Claude (Anthropic) | ~$0.01 per message | - |
+| Claude (Anthropic) | ~€0.01 per message | - |
 | HuggingFace | Free | 30,000 requests/month |
-| Railway | ~$5-10/month | 500 hours/month |
+| Railway | ~€5-10/month | 500 hours/month |
+| **Total** | **~€25-30/month** | |
 
-## Future Improvements (V2)
+## Future Improvements (V3)
 
-- [ ] GDPR-compliant anonymization before sending to Claude
-- [ ] Usage statistics dashboard
-- [ ] Feedback buttons (👍👎) for quality tracking
-- [ ] Integration with Dobbi backoffice API
+- [ ] GDPR-compliant PII anonymization before sending to external APIs
+- [ ] Direct email/WhatsApp integration
+- [ ] Ticket creation via Dobbi API for escalated complaints
+- [ ] A/B testing framework for prompt improvements
 
 ## Team
 
