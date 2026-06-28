@@ -432,12 +432,6 @@ def compute_stats(stats: list[dict]) -> dict:
     }
 
 
-st.set_page_config(
-    page_title="Dobbi CS Assistant",
-    page_icon="🧺",
-    layout="wide"
-)
-
 # Custom CSS with Dobbi brand colors
 st.markdown("""
 <style>
