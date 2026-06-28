@@ -333,34 +333,11 @@ with st.sidebar:
 
     if computed["total"] > 0:
         st.metric("Avg Confidence", f"{computed['avg_confidence']:.0%}")
-
+        
         st.subheader("Category Breakdown")
-        
-        # Bar chart
-        import plotly.express as px
-        
-        categories = [format_category_name(cat) for cat in computed["category_breakdown"].keys()]
-        values = [pct * 100 for pct in computed["category_breakdown"].values()]
-        
-        fig = px.bar(
-            y=categories,
-            x=values,
-            orientation='h',
-            color=categories,
-            color_discrete_sequence=['#85B17E', '#E07A5F', '#F2CC8F', '#81B29A', '#3D405B']
-        )
-        fig.update_layout(
-            showlegend=False,
-            margin=dict(t=0, b=0, l=0, r=0),
-            height=200,
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
-            xaxis_title="",
-            yaxis_title=""
-        )
-        
-        st.plotly_chart(
-            fig, 
-            use_container_width=True,
-            config={'displayModeBar': False}
-        )
+        for category, pct in sorted(
+            computed["category_breakdown"].items(),
+            key=lambda x: x[1],
+            reverse=True
+        ):
+            st.progress(pct, text=f"{category}: {pct:.0%}")
