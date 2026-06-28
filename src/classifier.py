@@ -46,8 +46,11 @@ class QuestionClassifier:
             }]
         )
         
-        response_text = response.content[0].text
-        
+        response_text = response.content[0].text.strip()
+        if response_text.startswith("```"):
+            lines = response_text.split("\n")
+            response_text = "\n".join(lines[1:-1]).strip()
+
         try:
             result = json.loads(response_text)
         except json.JSONDecodeError:
